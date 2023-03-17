@@ -1,0 +1,51 @@
+﻿@model doanthi.Models.Hoadon
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/style.css" asp-append-version="true">
+</head>
+<body>
+<h1>Edit</h1>
+
+<h4>Hoadon</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Hoadon_id" />
+            <div class="form-group">
+                <label asp-for="TenHD" class="control-label"></label>
+                <input asp-for="TenHD" class="form-control" />
+                <span asp-validation-for="TenHD" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NgaylapHD" class="control-label"></label>
+                <input asp-for="NgaylapHD" class="form-control" />
+                <span asp-validation-for="NgaylapHD" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User_id" class="control-label"></label>
+                <input asp-for="User_id" class="form-control" />
+                <span asp-validation-for="User_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+</body>
+</html>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

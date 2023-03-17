@@ -1,0 +1,72 @@
+﻿@model IEnumerable<doanthi.Models.Sanpham>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/style.css" asp-append-version="true">
+</head>
+<body>
+<h1>Sản Phẩm</h1>
+
+<p>
+    <a asp-action="Create">Thêm Sản Phẩm</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameSP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayNhap)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HSD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayNhap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HSD)
+            </td>
+            <td>
+                  <img src="~/image/@item.image" style="width:40px;height:100%">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                        <a asp-action="Edit" asp-route-id="@item.Sanpham_id" class="btn btn-sm btn-outline-warning"><image src="/image/edit.jpg" style="width:15px;height:100%"></image>Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Sanpham_id" class="btn btn-sm btn-outline-info"><image src="/image/view.jpg" style="width:15px;height:100%"></image>Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Sanpham_id" class="btn btn-sm btn-outline-danger"><image src="/image/delete.jpg" style="width:15px;height:100%"></image>Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

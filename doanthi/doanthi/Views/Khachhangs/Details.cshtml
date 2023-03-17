@@ -1,0 +1,50 @@
+﻿@model doanthi.Models.Khachhang
+
+@{
+    ViewData["Title"] = "Details";
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/style.css" asp-append-version="true">
+</head>
+<body>
+<h1>Details</h1>
+
+<div>
+    <h4>Khachhang</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Birday)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Birday)
+        </dd>
+    </dl>
+</div>
+<div>
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-sm btn-outline-warning"><image src="/image/edit.jpg" style="width:15px;height:100%"></image>Edit</a> |
+        <a asp-action="Index" class="btn btn-sm btn-outline-secondary"><image src="/image/exit.jpg" style="width:25px;height:100%"></image>Back to List</a>
+</div>
+</body>
+</html>

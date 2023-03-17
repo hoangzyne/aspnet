@@ -1,0 +1,54 @@
+﻿@model IEnumerable<doanthi.Models.Hoadon>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/style.css" asp-append-version="true">
+</head>
+<body>
+<h1>Hóa Đơn</h1>
+
+<p>
+    <a asp-action="Create">Thêm Hóa Đơn</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TenHD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgaylapHD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User_id)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenHD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgaylapHD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User_id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Hoadon_id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Hoadon_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Hoadon_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>
